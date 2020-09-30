@@ -1,0 +1,49 @@
+<h<html>
+<head>
+<script language = "JavaScript">
+
+var picList = [ "images/slide1.jpg", "images/slide2.jpg", "images/slide3.jpg", "images/slide4.jpg", "images/slide5.jpg" ];
+
+    var clipList = [ "sounds/tonystark.mp3", "sounds/captainamerica.mp3", "sounds/thor.mp3", "sounds/hulk.mp3", "sounds/blackpanther.mp3" ];
+   
+ 
+    var number = 0;
+function startShow()
+{
+  var pic =document.getElementById("picFrame") ;
+ var clip= document.getElementById("myAudio") ;
+   
+   
+   
+       pic.src = picList[number];
+    clip.src= clipList [number];
+    clip.play();
+   
+    number = number+1;
+    if (number >4)
+    {
+    number=0;
+    }
+       
+}
+
+
+</script>
+
+</head>
+<body>
+<center>
+<h1> Avengers Slideshow </h1>
+
+<img id="picFrame" src="images/slide0.jpg"/>
+    <audio id="myAudio"> </audio>    
+   
+   
+<br/>
+<br/>
+
+<input type="button" value="Click Me" onClick="startShow()">
+
+</center>
+</body>
+</html>
