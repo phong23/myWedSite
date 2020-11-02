@@ -1,0 +1,65 @@
+<html>
+<head>
+<script languague = "JavaScript">
+
+var answers = ["yes", "no", "maybe", "probably", "definitely", "perhaps", 
+"most definitely not", "possibly", "never", "of course"];
+
+function random()
+
+{
+
+	var rand = -1;
+	var userQ = document.getElementById("question");
+	var myAnswer = document.getElementById("answer");
+	
+	
+	
+	//Math.random returns a random decimal between 0 (inclusive) and 1 (exclusive)
+	//rand = rand * (10); // 0.000 and 9.99999
+	//generate a random integer between - 10 and 10 inclusive
+	
+	
+	rand = Math.random()*answers.length; // 0 - 10
+	rand = Math.floor(rand); // returns the nearest integer that is LESS than the parameter
+	
+	
+	//alert(usedQ.value.length);
+	if (userQ.value.length == 0)
+	{
+		myAnswer.value = answers[rand]; "Please type a question first"
+	}
+	else
+	{
+		myAnswer.value = answers[rand];
+		if( rand == 9 )
+		{
+			document.getElementById("player").play();
+		}
+	}
+}
+
+function reset()
+{
+	document.getElementById("answer").value ="";
+}
+
+</script>
+</head>
+<body background="images/herobkgnd.gif">
+<center>
+<h1>Magic 8 Ball</h1>
+
+<img src = "images/8ball.jpg" width = "600"/><br/><br/>
+
+
+<input id = "question" type = "text" size="80" onfocusin="reset()"/><br/><br/><br/><
+<input type="button" value="Click here" onClick="random()"/><br/><br/>
+<input id = "answer" type = "text" size = "80" readonly = true/><br/><
+
+<audio src="sounds/illuminati.mp3" id="player"> </audio
+
+Click here to <a href="index.html">return to my homepage.</a>
+</center>
+</body>
+</html>
