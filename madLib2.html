@@ -1,0 +1,74 @@
+<html>
+<head> 
+<script language="JavaScript">
+var partsOfSpeech = ["Enter a place", "Enter a verb", "Enter a person's name", "Enter a verb", "Enter a food", "Enter a adjective" , "Enter a adjective" , "Enter a adjective" , "Enter a place", "Enter a something"];
+var answers = new Array(partsOfSpeech.length);
+var story = ["During midnight Bob walked to", ".Bob saw a ghost and", "away as fast as possible. He was very scared and decided to go to his", "house. Bob asked to spend the night and", ". Bob ate some", "and had a good night. During the night he had some", "dreams. He ended up having a", "night of sleep. Bob woke up feeling very", ". He decided to go", ". In broad daylight he started to see", "for the rest of his life."];
+var count = 0;
+
+
+function prompt()
+{
+	// if this is the start, display the textbox and hide the story. 
+	// then display the first element of partsOfSpeech in the textbox. 
+
+	document.getElementById("userEnter").style.visibility = "visible";
+	document.getElementById("story").style.visibility = "hidden";
+	document.getElementById("response").value = partsOfSpeech[count];
+}
+
+
+function getWords()
+{
+    var wordBox = document.getElementById("response")
+    answers[count] = wordBox.value;
+    
+    count++;
+    if( count < partsOfSpeech.length ) 
+    {
+    prompt();
+    }
+    else
+    {
+        count = 0;
+        document.getElementById("story").innerHTML = displayStory();
+    }    
+}
+
+function displayStory()
+{
+	var answer = "";
+	var i;
+	
+	// loop to stitch elements of story with elements of answers. 
+	
+	for ( i = 0; i< answers.length; i++)
+	{
+	answer = answer + story[i]
+    answer = answer + answers[i]
+	}
+	answer = answer + story[i];
+    
+    // if there's one more element in story than answers, then add the last element of answers
+
+	// Make the story div visible, and the userEnter div hidden.		
+
+	document.getElementById("story").style.visibility = "visible";
+    document.getElementById("userEnter").style.visibility = "hidden";
+    
+    // return the variable answer.
+   
+    return answer;
+}
+
+</script>
+</head>
+<body>
+<center> 
+<h1>My MadLib!</h1>
+<input id="button" type="button" value="start" onClick="prompt()"/>
+</center>
+<div id="userEnter" style="position:absolute; left:200; top: 100; visibility:hidden;">
+<input type = "text" id="response" value="" onfocusout="getWords()"/>
+</div>
+<center/>
