@@ -1,6 +1,7 @@
 <html>
 <head> 
 <script language="JavaScript">
+
 var partsOfSpeech = ["Enter a place", "Enter a verb", "Enter a person's name", "Enter a verb", "Enter a food", "Enter a adjective" , "Enter a adjective" , "Enter a adjective" , "Enter a place", "Enter a something"];
 var answers = new Array(partsOfSpeech.length);
 var story = ["During midnight Bob walked to", ".Bob saw a ghost and", "away as fast as possible. He was very scared and decided to go to his", "house. Bob asked to spend the night and", ". Bob ate some", "and had a good night. During the night he had some", "dreams. He ended up having a", "night of sleep. Bob woke up feeling very", ". He decided to go", ". In broad daylight he started to see", "for the rest of his life."];
@@ -15,12 +16,13 @@ function prompt()
 	document.getElementById("userEnter").style.visibility = "visible";
 	document.getElementById("story").style.visibility = "hidden";
 	document.getElementById("response").value = partsOfSpeech[count];
+
 }
 
 
 function getWords()
 {
-    var wordBox = document.getElementById("response")
+   var wordBox = document.getElementById("response")
     answers[count] = wordBox.value;
     
     count++;
@@ -33,6 +35,7 @@ function getWords()
         count = 0;
         document.getElementById("story").innerHTML = displayStory();
     }    
+
 }
 
 function displayStory()
@@ -66,9 +69,16 @@ function displayStory()
 <body>
 <center> 
 <h1>My MadLib!</h1>
-<input id="button" type="button" value="start" onClick="prompt()"/>
+<input id="daButton" type="button" value="start" onClick="prompt()"/>
 </center>
 <div id="userEnter" style="position:absolute; left:200; top: 100; visibility:hidden;">
-<input type = "text" id="response" value="" onfocusout="getWords()"/>
+<input type = "text" id="response" value="" onfocusout="getWords()"/></p>
 </div>
-<center/>
+Click here to <a href="index.html">return to my homepage.</a>
+
+<div id="story" style="position:absolute; overflow:scroll; top:300; left:200; width:400; height: 200; visibility:hidden">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+<div>
+
+</body>
+</html>
