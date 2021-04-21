@@ -1,0 +1,130 @@
+<html>
+<head>
+<body>
+<script language="JavaScript">
+
+var pictures = ["images/animal1.jpg", "images/animal2.jpg", "images/animal3.jpg", "images/animal4.jpg", "images/animal5.jpg", "images/animal6.jpg", "images/animal7.jpg", "images/animal8.jpg", "images/animal9.jpg", "images/animal10.jpg" ];
+
+var questions = ["What animal has claws, teeth, and lives in Africa?", "What animal howls and hunts in packs?", "What animal has razor sharp teeth and is a fish?", "What animal is black, white, and eats bamboo?", "What animal has tusks and a trunk?", "What animal hangs in caves and flys in the dark?", "What animal has a long neck and has a spotted pattern?", "What animal has white fur and lives in Antarctica?", "What animal runs really fast and has a spotted pattern?", "What animal hops on two legs and has a pouch?"];
+
+var answers = ["Lion", "Wolf", "Shark", "Panda", "Elephant", "Bat", "Giraffe", "Polar Bear", "Cheetah", "Kangroo"];
+
+//var score = 0;
+var index = 0;
+var userS = "";
+
+function displayQuestion()
+{
+index = index + 1;
+
+    if( index > questions.length - 1 )
+    {
+        index = 0;
+    }
+    var answer = document.getElementById("question");
+    answer.value = questions[index];
+
+}
+function loadData()
+{
+var sum = 0;
+
+for(var i = 0; i<answers.length; i++)
+    {
+  var daList = document.getElementById("animal");
+  var option = document.createElement("option");
+  option.text = answers[i];
+  daList.add(option);
+    }
+}
+
+
+function start()
+{
+
+var selection = document.getElementById("animal");
+var daIndex = getIndex(selection.value);
+
+if(daIndex == -1)
+{
+alert("error");
+}
+
+}
+
+function getIndex()  
+{
+
+var answer = -1;
+for(var i = 0; i < answer.length; i++)
+{
+
+if(answer[i] == d)
+{
+answer = i;
+}
+return answer;
+}
+userS = questions[answer]
+//alert(userS);
+}
+
+
+
+function checkAnswer()
+{
+    document.getElementById("pic").src = pictures[index];
+    document.getElementById("cards").style.visibility = "visible";
+    if( document.getElementById("animal").value == answers[index])
+    {
+        alert("correct");
+    }
+    else
+    {
+        alert("incorrect");
+    }
+   
+}
+
+   
+
+
+</script>
+</head>
+<body onload = "loadData()" bgcolor="tan">
+<font color="black">
+<center>
+<h1>ANIMAL CARDS</h1>
+Click <a href="index.html">here</a> return to my homepage.
+
+<br/><br/>
+<!table border = 3>
+<tr>
+<td>   <!input id="question" type="text" size="80" readonly = true/> </td>
+</tr>
+<td> <input id="question" type="text" size="60" readonly = true/> </td>
+<td>  <select name="p1" id="animal"></select> </td>
+    <br/>
+<tr height = "20"><td></td>
+</tr>
+<tr>
+<td>
+   
+</tr>
+<tr>
+<td>
+</table>
+<br/><br/>
+<input type="button" value="Next Question" onclick="displayQuestion()"/>
+<input type="button" value="check" onclick="checkAnswer()"/>
+   
+    <br/>
+ <div id="cards" style="position:absolute; top:250; left:390; width:600; height: 400; visibility:hidden">
+           <img id="pic" src = "images/animal1.jpg" width = 400/>
+    <div/>
+     <br/>
+</center>
+
+
+</body>
+</html>
